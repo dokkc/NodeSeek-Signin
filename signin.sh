@@ -31,8 +31,10 @@ for COOKIE in ${COOKIES[@]}; do
       message=$(echo $response | jq -r '.message' 2>/dev/null)
       gain=$(echo $response | jq -r '.gain' 2>/dev/null)
       current=$(echo $response | jq -r '.current' 2>/dev/null)
+      curl -X GET http://43.207.4.3:8080/6j5SHWpVDWXKFPysXymYic/签到成功，$message，如今有$current 个鸡腿
       echo "签到成功，$message，如今有$current 个鸡腿"
     else
+      curl -X GET http://43.207.4.3:8080/6j5SHWpVDWXKFPysXymYic/签到失败
       echo "签到失败，错误信息：$response"
     fi
   fi
